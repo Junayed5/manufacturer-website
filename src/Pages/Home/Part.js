@@ -13,7 +13,7 @@ const Part = ({ part }) => {
                     <h4 className=''><span className='font-bold'>Per Price:</span>{price}</h4>
                     <p><span className='font-bold'>Description:</span>{description}</p>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-primary">Buy Now</button>
+                        <button className="btn btn-accent text-white">Buy Now</button>
                     </div>
                 </div>
             </div>

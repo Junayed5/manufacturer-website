@@ -11,9 +11,9 @@ const AllParts = () => {
     },[])
 
     return (
-        <div className='my-10'>
-            <h1 className='text-5xl font-bold text-center'>All parts:{parts.length}</h1>
-            <div>
+        <div className='my-14'>
+            <h1 className='text-4xl font-bold text-center text-primary'>All parts</h1>
+            <div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-5'>
                 {
                     parts.map(part => <Part 
                     key={part._id}
