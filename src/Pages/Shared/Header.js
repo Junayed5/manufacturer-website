@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
     const navigation = <>
-        <li><a href='/'>Item 1</a></li>
-        <li><a href='/'>Item 3</a></li>
+        <li><Link to='/'>Home</Link></li>
+        <li><Link to='/login'>Login</Link></li>
     </>
     return (
         <div className="navbar bg-base-100">
@@ -17,7 +18,7 @@ const Header = () => {
                         {navigation}
                     </ul>
                 </div>
-                <a className="btn btn-ghost normal-case text-xl" href='/'>daisyUI</a>
+                <Link className="btn btn-ghost normal-case text-xl" to='/'>daisyUI</Link>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">

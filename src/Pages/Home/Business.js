@@ -13,22 +13,22 @@ const Business = () => {
                 <div>
                     <IoIosPeople size={50} className='text-primary mx-auto'/>
                     <h1 className='text-secondary text-3xl font-bold mt-4 '>100+</h1>
-                    <p>Customers</p>
+                    <p className='text-primary'>Customers</p>
                 </div>
                 <div>
                     <MdMonetizationOn size={50} className='text-primary mx-auto'/>
                     <h1 className='text-secondary text-3xl font-bold mt-4 '>12M+</h1>
-                    <p>Annual revenue</p>
+                    <p className='text-primary'>Annual revenue</p>
                 </div>
                 <div>
                     <AiFillLike size={50} className='text-primary mx-auto'/>
                     <h1 className='text-secondary text-3xl font-bold mt-4 '>33K+</h1>
-                    <p>Reviews</p>
+                    <p className='text-primary'>Reviews</p>
                 </div>
                 <div>
                     <FaTools size={50} className='text-primary mx-auto'/>
                     <h1 className='text-secondary text-3xl font-bold mt-4 '>50+</h1>
-                    <p>Tools</p>
+                    <p className='text-primary'>Tools</p>
                 </div>
             </div>
         </div>
