@@ -10,47 +10,47 @@
     },
     {
         "_id":2,
-        "name":"Gigabyte Motherboard",
-        "minOrder":"50",
-        "quantity":"400",
+        "name":"DDR3 4gb Ram",
+        "minOrder":"100",
+        "quantity":"500",
         "price":"200",
         "description":"This is the main part of pc.You can buy to sell your computer store.It available our manufacturer store.",
-        "img":"https://www.startech.com.bd/image/cache/catalog/motherboard/gigabyte/ga-h110m-h/ga-h110m-h-1-228x228.jpg"
+        "img":"https://www.startech.com.bd/image/cache/catalog/ram/patriot/4gb-1600-bus/patriot-4gb-1600-bus-228x228.jpg"
     },
     {
         "_id":3,
-        "name":"Gigabyte Motherboard",
-        "minOrder":"50",
-        "quantity":"400",
+        "name":"128gb SSD",
+        "minOrder":"100",
+        "quantity":"500",
         "price":"200",
         "description":"This is the main part of pc.You can buy to sell your computer store.It available our manufacturer store.",
-        "img":"https://www.startech.com.bd/image/cache/catalog/motherboard/gigabyte/ga-h110m-h/ga-h110m-h-1-228x228.jpg"
+        "img":"https://www.startech.com.bd/image/cache/catalog/ssd/transcend/230s/128gb-228x228.jpg"
     },
     {
         "_id":4,
-        "name":"Gigabyte Motherboard",
+        "name":"Gigatech Casing",
         "minOrder":"50",
-        "quantity":"400",
+        "quantity":"200",
         "price":"200",
         "description":"This is the main part of pc.You can buy to sell your computer store.It available our manufacturer store.",
-        "img":"https://www.startech.com.bd/image/cache/catalog/motherboard/gigabyte/ga-h110m-h/ga-h110m-h-1-228x228.jpg"
+        "img":"https://www.startech.com.bd/image/cache/catalog/casing/max-green/5909br/5909br-1-228x228.jpg"
     },
     {
         "_id":5,
-        "name":"Gigabyte Motherboard",
-        "minOrder":"50",
-        "quantity":"400",
+        "name":"DDR4 8gb Ram",
+        "minOrder":"100",
+        "quantity":"600",
         "price":"200",
         "description":"This is the main part of pc.You can buy to sell your computer store.It available our manufacturer store.",
-        "img":"https://www.startech.com.bd/image/cache/catalog/motherboard/gigabyte/ga-h110m-h/ga-h110m-h-1-228x228.jpg"
+        "img":"https://www.startech.com.bd/image/cache/catalog/ram/patriot/signature-line/signature-line-0001-228x228.jpg"
     },
     {
         "_id":6,
-        "name":"Gigabyte Motherboard",
+        "name":"Gigabyte 2gb Graphics card",
         "minOrder":"50",
         "quantity":"400",
         "price":"200",
         "description":"This is the main part of pc.You can buy to sell your computer store.It available our manufacturer store.",
-        "img":"https://www.startech.com.bd/image/cache/catalog/motherboard/gigabyte/ga-h110m-h/ga-h110m-h-1-228x228.jpg"
+        "img":"https://www.startech.com.bd/image/cache/catalog/graphics-card/gigabyte/geforce-gt-730/geforce-gt-730-001-228x228.jpg"
     }
 ]
