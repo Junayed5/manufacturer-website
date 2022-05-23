@@ -1,13 +1,27 @@
 import React from 'react';
+import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const Login = () => {
 
     const { register, formState: { errors }, handleSubmit } = useForm();
 
+    const [
+        signInWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useSignInWithEmailAndPassword(auth);
+    
+    if (user) {
+        console.log(user);
+    }
+
     const onSubmit = data => {
-        console.log(data)
+        console.log(data);
+        signInWithEmailAndPassword(data.email,data.password);
     };
     return (
         <div className='flex justify-center'>
@@ -35,12 +49,12 @@ const Login = () => {
                                 type="password"
                                 placeholder="password"
                                 className="input input-bordered"
-                                {...register("password", { 
+                                {...register("password", {
                                     required: {
-                                        value:true,
-                                        message:<p>Password is required</p>
+                                        value: true,
+                                        message: <p>Password is required</p>
                                     },
-                                     
+
                                 })}
                             />
                             {errors.password?.type === 'required' && <span className='text-red-600'>{errors?.password?.message}</span>}
@@ -55,11 +69,11 @@ const Login = () => {
                             <button className="btn btn-primary text-white">Login</button>
                         </div>
                         <div className="divider">OR</div>
-                        
+
                     </form>
                     <div className="form-control">
-                            <button className="btn bg-gray-300 text-black border-0 hover:text-white">Continue with Google</button>
-                        </div>
+                        <button className="btn bg-gray-300 text-black border-0 hover:text-white">Continue with Google</button>
+                    </div>
                 </div>
             </div>
         </div>
