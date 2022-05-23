@@ -25,7 +25,7 @@ const Product = () => {
                 <h4 className='text-xl'><span className='font-bold'>Minimum Order:</span>{minOrder}</h4>
                 <h4 className=''><span className='font-bold'>Per Price:</span>${price}</h4>
                 <div className="card-actions">
-                    <label onClick={() => setPurchase(product)} for="my-modal-6" class="btn modal-button btn-accent">Purchase</label>
+                    <label onClick={() => setPurchase(product)} htmlFor="my-modal-6" className="btn modal-button btn-accent">Purchase</label>
                 </div>
                 {purchase && <Purchase
                 product={product}
