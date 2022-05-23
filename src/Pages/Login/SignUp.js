@@ -1,13 +1,32 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+
 
 const SignUp = () => {
 
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, formState: { errors }, handleSubmit,reset } = useForm();
 
-    const onSubmit = data => {
-        console.log(data)
+    const [
+        createUserWithEmailAndPassword,
+        user,
+        loading,
+        error,
+    ] = useCreateUserWithEmailAndPassword(auth);
+
+    const [updateProfile, updating, UError] = useUpdateProfile(auth);
+
+    if (user) {
+        console.log(user);
+    }
+
+    const onSubmit = async data => {
+        console.log(data);
+        await createUserWithEmailAndPassword(data.email, data.password);
+        await updateProfile({displayName: data.name});
+        reset();
     };
 
     return (
@@ -48,12 +67,12 @@ const SignUp = () => {
                                 type="password"
                                 placeholder="password"
                                 className="input input-bordered"
-                                {...register("password", { 
+                                {...register("password", {
                                     required: {
-                                        value:true,
-                                        message:<p>Password is required</p>
+                                        value: true,
+                                        message: <p>Password is required</p>
                                     },
-                                     
+
                                 })}
                             />
                             {errors.password?.type === 'required' && <span className='text-red-600'>{errors?.password?.message}</span>}
@@ -65,11 +84,11 @@ const SignUp = () => {
                             <button className="btn btn-primary text-white">Sign Up</button>
                         </div>
                         <div className="divider">OR</div>
-                        
+
                     </form>
                     <div className="form-control">
-                            <button className="btn bg-gray-300 text-black border-0 hover:text-white">Continue with Google</button>
-                        </div>
+                        <button className="btn bg-gray-300 text-black border-0 hover:text-white">Continue with Google</button>
+                    </div>
                 </div>
             </div>
         </div>
