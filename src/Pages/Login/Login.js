@@ -3,6 +3,7 @@ import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
+import SocialLogin from './SocialLogin';
 
 const Login = () => {
 
@@ -14,7 +15,7 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
-    
+
     if (user) {
         console.log(user);
     }
@@ -71,9 +72,7 @@ const Login = () => {
                         <div className="divider">OR</div>
 
                     </form>
-                    <div className="form-control">
-                        <button className="btn bg-gray-300 text-black border-0 hover:text-white">Continue with Google</button>
-                    </div>
+                    <SocialLogin/>
                 </div>
             </div>
         </div>

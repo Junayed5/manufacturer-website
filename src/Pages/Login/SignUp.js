@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import SocialLogin from './SocialLogin';
 
 
 const SignUp = () => {
@@ -86,9 +87,7 @@ const SignUp = () => {
                         <div className="divider">OR</div>
 
                     </form>
-                    <div className="form-control">
-                        <button className="btn bg-gray-300 text-black border-0 hover:text-white">Continue with Google</button>
-                    </div>
+                    <SocialLogin/>
                 </div>
             </div>
         </div>
