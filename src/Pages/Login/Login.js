@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import SocialLogin from './SocialLogin';
 
@@ -16,13 +16,17 @@ const Login = () => {
         error,
     ] = useSignInWithEmailAndPassword(auth);
 
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+
     if (user) {
-        console.log(user);
+        navigate(from, { replace: true });
     }
 
     const onSubmit = data => {
         console.log(data);
-        signInWithEmailAndPassword(data.email,data.password);
+        signInWithEmailAndPassword(data.email, data.password);
     };
     return (
         <div className='flex justify-center'>
@@ -72,7 +76,7 @@ const Login = () => {
                         <div className="divider">OR</div>
 
                     </form>
-                    <SocialLogin/>
+                    <SocialLogin />
                 </div>
             </div>
         </div>
