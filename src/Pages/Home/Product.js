@@ -6,7 +6,7 @@ const Product = () => {
     const { id } = useParams()
     const [product, setProduct] = useState({});
     const [purchase, setPurchase] = useState(null);
-    const { img, name, quantity, minOrder, price } = product
+    const { img, name, quantity, minOrder, price } = product;
 
     useEffect(() => {
         fetch(`http://localhost:4000/part/${id}`)
@@ -21,7 +21,7 @@ const Product = () => {
             </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{name}</h2>
-                <h4 className='text-xl'><span className='font-bold'>Total Quantity:</span>{quantity}</h4>
+                <h4 className='text-xl'><span className='font-bold'>Available stock:</span>{quantity}</h4>
                 <h4 className='text-xl'><span className='font-bold'>Minimum Order:</span>{minOrder}</h4>
                 <h4 className=''><span className='font-bold'>Per Price:</span>${price}</h4>
                 <div className="card-actions">

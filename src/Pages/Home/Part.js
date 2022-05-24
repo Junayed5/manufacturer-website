@@ -9,7 +9,7 @@ const Part = ({ part }) => {
                 <figure><img src={img} alt="Shoes" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
-                    <h4 className='text-xl'><span className='font-bold'>Total Quantity:</span>{quantity}</h4>
+                    <h4 className='text-xl'><span className='font-bold'>Available Stock:</span>{quantity}</h4>
                     <h4 className='text-xl'><span className='font-bold'>Minimum Order:</span>{minOrder}</h4>
                     <h4 className=''><span className='font-bold'>Per Price:</span>${price}</h4>
                     <p><span className='font-bold'>Description:</span>{description}</p>

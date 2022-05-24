@@ -4,24 +4,17 @@ import auth from '../../firebase.init';
 const Purchase = ({ product, setPurchase }) => {
 
     const [user] = useAuthState(auth);
-    // const [newQuantity, setNewQuantity] = useState(0);
-
     const handlePurchase = event => {
         event.preventDefault();
         const name = event.target.name.value;
         const email = event.target.email.value;
         const productName = event.target.product.value;
         const quantity = event.target.quantity.value;
-        // if (quantity >= product.minOrder) {
-        //     setNewQuantity(quantity)
-        // } else {
-        //     alert('does not mach', quantity)
-        // }
         const address = event.target.address.value;
         const phone = event.target.phone.value;
 
         const purchase = { name, email, productName, quantity, address, phone };
-           console.log(purchase);
+        console.log(purchase);
 
         fetch('http://localhost:4000/orders', {
             method: 'POST',
@@ -48,7 +41,7 @@ const Purchase = ({ product, setPurchase }) => {
                         <input type="text" name='name' value={user?.displayName} className="input input-bordered w-full max-w-xs mb-5" disabled />
                         <input type="email" name='email' value={user?.email} className="input input-bordered w-full max-w-xs mb-5" disabled />
                         <input type="text" name='product' value={product?.name} className="input input-bordered w-full max-w-xs mb-5" disabled />
-                        <input type="text" name='quantity' placeholder='Product Quantity' className="input input-bordered w-full max-w-xs mb-5" required='100+' />
+                        <input type="text" name='quantity' placeholder='Product Quantity' className="input input-bordered w-full max-w-xs mb-5" required='100+' /><br />
                         <input type="text" name='address' placeholder='Your address' className="input input-bordered w-full max-w-xs mb-5" />
                         <input type="text" name='phone' placeholder='Phone number' className="input input-bordered w-full max-w-xs mb-5" />
                         <input type="submit" className="btn btn-accent w-full max-w-xs text-white" value="Submit" />

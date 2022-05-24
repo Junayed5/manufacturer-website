@@ -6,7 +6,7 @@ import auth from '../../firebase.init';
 
 const Header = () => {
 
-    const [user, loading, error] = useAuthState(auth);
+    const [user] = useAuthState(auth);
 
     const handleSignOut = () => {
         signOut(auth);
@@ -14,6 +14,7 @@ const Header = () => {
 
     const navigation = <>
         <li><Link to='/'>Home</Link></li>
+        {user && <Link className='my-auto btn btn-ghost' to='/dashboard'>Dashboard</Link>}
         {user ? <button onClick={handleSignOut} className='btn btn-ghost'>Sign out</button>:<li><Link to='/login'>Login</Link></li>}
     </>
     return (
