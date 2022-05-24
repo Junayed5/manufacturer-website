@@ -9,11 +9,11 @@ const Purchase = ({ product, setPurchase }) => {
         const name = event.target.name.value;
         const email = event.target.email.value;
         const productName = event.target.product.value;
-        const quantity = event.target.quantity.value;
+        const orderQuantity = event.target.quantity.value;
         const address = event.target.address.value;
         const phone = event.target.phone.value;
 
-        const purchase = { name, email, productName, quantity, address, phone };
+        const purchase = { name, email, productName, quantity: orderQuantity, address, phone };
         console.log(purchase);
 
         fetch('http://localhost:4000/orders', {
@@ -21,13 +21,28 @@ const Purchase = ({ product, setPurchase }) => {
             headers: {
                 'Content-type': 'application/json'
             },
-               body:JSON.stringify(purchase)
+            body: JSON.stringify(purchase)
         })
             .then(res => res.json())
             .then(data => {
                 console.log({ 'success': data });
                 setPurchase(null)
-            })
+            });
+
+        // const updateQuantity = {quantity:quantity - orderQuantity}
+
+        // fetch(`http://localhost:4000/parts/${product._id}`, {
+        //     method: 'PATCH',
+        //     headers: {
+        //         'Content-type': 'application/json'
+        //     },
+        //        body:JSON.stringify()
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log({ 'success': data });
+        //         setPurchase(null)
+        //     })
 
     }
 

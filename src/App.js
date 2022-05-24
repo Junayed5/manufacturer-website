@@ -23,7 +23,11 @@ function App() {
             <Product/>
           </RequireAuth>
         }/>
-        <Route path='/dashboard' element={<Dashboard/>}>
+        <Route path='/dashboard' element={
+          <RequireAuth>
+            <Dashboard/>
+          </RequireAuth>
+        }>
           <Route path='myOrder' element={<MyOrder/>}/>
           <Route path='review' element={<AddReview/>}/>
           <Route path='profile' element={<MyProfile/>}/>
