@@ -21,7 +21,7 @@ const Purchase = ({ product, setPurchase }) => {
             headers: {
                 'Content-type': 'application/json'
             },
-            //    body:JSON.stringify(purchase)
+               body:JSON.stringify(purchase)
         })
             .then(res => res.json())
             .then(data => {
@@ -41,7 +41,7 @@ const Purchase = ({ product, setPurchase }) => {
                         <input type="text" name='name' value={user?.displayName} className="input input-bordered w-full max-w-xs mb-5" disabled />
                         <input type="email" name='email' value={user?.email} className="input input-bordered w-full max-w-xs mb-5" disabled />
                         <input type="text" name='product' value={product?.name} className="input input-bordered w-full max-w-xs mb-5" disabled />
-                        <input type="text" name='quantity' placeholder='Product Quantity' className="input input-bordered w-full max-w-xs mb-5" required='100+' /><br />
+                        <input type="text" name='quantity' placeholder={`Product Quantity minimum ${product.minOrder}`} className="input input-bordered w-full max-w-xs mb-5" required='100+' /><br />
                         <input type="text" name='address' placeholder='Your address' className="input input-bordered w-full max-w-xs mb-5" />
                         <input type="text" name='phone' placeholder='Phone number' className="input input-bordered w-full max-w-xs mb-5" />
                         <input type="submit" className="btn btn-accent w-full max-w-xs text-white" value="Submit" />
