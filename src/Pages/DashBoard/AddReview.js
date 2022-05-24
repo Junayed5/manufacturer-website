@@ -1,11 +1,28 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import auth from '../../firebase.init';
+import { useNavigate } from 'react-router-dom';
 
 const AddReview = () => {
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const [user] = useAuthState(auth);
+    const { register, handleSubmit } = useForm();
+    const navigate = useNavigate();
 
     const onSubmit = data => {
         console.log(data);
+        fetch('http://localhost:4000/review',{
+            method:'POST',
+            headers:{
+                'Content-type':'application/json'
+            },
+            body:JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log({'success': data});
+            navigate('/')
+        })
     }
     return (
         <div className='mx-auto'>
@@ -19,11 +36,11 @@ const AddReview = () => {
                             </label>
                             <input
                                 type="text"
+                                value={user.displayName}
                                 placeholder="name"
                                 className="input input-bordered"
-                                {...register("name", { required: true })}
+                                {...register("name")}
                             />
-                            {errors.name?.type === 'required' && <span className='text-red-600'>Name is required</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -32,10 +49,10 @@ const AddReview = () => {
                             <input
                                 type="email"
                                 placeholder="email"
+                                value={user.email}
                                 className="input input-bordered"
-                                {...register("email", { required: true })}
+                                {...register("email")}
                             />
-                            {errors.email?.type === 'required' && <span className='text-red-600'>Email is required</span>}
                         </div>
                         <div className="form-control">
                             <label className="label">
@@ -45,7 +62,7 @@ const AddReview = () => {
                                 type="number"
                                 placeholder="rating"
                                 className="input input-bordered"
-                                {...register("email")}
+                                {...register("ratings")}
                             />
                         </div>
                         <div className="form-control">
@@ -54,6 +71,7 @@ const AddReview = () => {
                             </label>
                             <textarea
                                 className="textarea textarea-bordered" placeholder="Your Message"
+                                {...register("message")}
                             ></textarea>
 
                         </div>
