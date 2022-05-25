@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import auth from '../../firebase.init';
@@ -21,6 +21,13 @@ const MyProfile = () => {
             console.log({'success': data});
         })
     }
+
+    const [profile,setProfile] = useState({});
+    useEffect( () => {
+        fetch(`http://localhost:4000/profile/${user.email}`)
+        .then(res => res.json())
+        .then(data => setProfile(data))
+    },[profile,user.email])
     return (
         <div className="card w-96 bg-base-100 shadow-xl mx-auto">
             <div className="card-body">
@@ -29,8 +36,20 @@ const MyProfile = () => {
                         <img src={user.photoURL ? user.photoURL : 'https://media.istockphoto.com/vectors/default-profile-picture-avatar-photo-placeholder-vector-illustration-vector-id1223671392?k=20&m=1223671392&s=612x612&w=0&h=lGpj2vWAI3WUT1JeJWm1PRoHT3V15_1pdcTn2szdwQ0='} alt='' />
                     </div>
                 </div>
-                <p>Name:{user.displayName}</p>
-                <p>Email:{user.email}</p>
+                <p><span className='font-bold'>Name:</span> {user.displayName}</p>
+                <p><span className='font-bold'>Email:</span> {user.email}</p>
+                {
+                    profile && <p><span className='font-bold'>Education:</span> {profile.education}</p>
+                }
+                {
+                    profile && <p><span className='font-bold'>Location:</span> {profile.location}</p>
+                }
+                {
+                    profile && <p><span className='font-bold'>Phone:</span> {profile.phone}</p>
+                }
+                {
+                    profile && <p className='link-hover'><span className='font-bold'>Social Link:</span>{profile.link}</p>
+                }
 
                 <label htmlFor="my-modal-3" className="btn modal-button btn-accent">Update Profile</label>
 
@@ -84,7 +103,7 @@ const MyProfile = () => {
                                 />
                             </div>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary text-white">Login</button>
+                                <button className="btn btn-primary text-white">Update</button>
                             </div>
                         </form>
                     </div>
