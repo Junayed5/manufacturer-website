@@ -1,4 +1,5 @@
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const Purchase = ({ product, setPurchase }) => {
@@ -27,6 +28,7 @@ const Purchase = ({ product, setPurchase }) => {
             .then(data => {
                 console.log({ 'success': data });
                 setPurchase(null)
+                toast.success('Order Done!')
             });
 
         // const updateQuantity = {quantity:quantity - orderQuantity}

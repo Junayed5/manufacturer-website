@@ -30,6 +30,7 @@ const MyProfile = () => {
     },[profile,user.email])
     return (
         <div className="card w-96 bg-base-100 shadow-xl mx-auto">
+            <h3 className='text-cyan-400 text-3xl font-bold text-center my-3'>Profile</h3>
             <div className="card-body">
                 <div className="avatar">
                     <div className="w-24 mask mask-squircle mx-auto">
