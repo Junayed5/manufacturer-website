@@ -10,6 +10,7 @@ const Header = () => {
 
     const handleSignOut = () => {
         signOut(auth);
+        localStorage.removeItem('accessToken');
     }
 
     const navigation = <>

@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import SocialLogin from './SocialLogin';
+import { toast } from 'react-toastify';
+import UseToken from '../../hooks/UseToken';
 
 
 const SignUp = () => {
@@ -19,15 +21,19 @@ const SignUp = () => {
 
     const [updateProfile, updating, UError] = useUpdateProfile(auth);
 
-    if (user) {
-        console.log(user);
+    const token = UseToken(user)
+
+    if (token) {
+        // console.log(user);
     }
 
     const onSubmit = async data => {
         console.log(data);
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({displayName: data.name});
+        
         reset();
+        toast('Successfully Registration Done')
     };
 
     return (

@@ -7,7 +7,12 @@ const MyOrder = () => {
     const [orders, setOrders] = useState([]);
     const [user] = useAuthState(auth)
     useEffect(() => {
-        fetch(`http://localhost:4000/orders?email=${user.email}`)
+        fetch(`http://localhost:4000/orders?email=${user.email}`,{
+            method:"GET",
+            headers:{
+                authorization:`Bearar ${localStorage.getItem('accessToken')}`
+            }
+        })
             .then(res => res.json())
             .then(data => setOrders(data))
     }, [user.email])
@@ -26,7 +31,7 @@ const MyOrder = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        {orders.map((order,index) => <tr key={index}>
+                        {orders?.map((order,index) => <tr key={index}>
                             <th>{index + 1}</th>
                             <td>{order.productName}</td>
                             <td>{order.email}</td>
