@@ -29,7 +29,7 @@ const Header = () => {
                         {navigation}
                     </ul>
                 </div>
-                <Link className="btn btn-ghost normal-case text-xl" to='/'>daisyUI</Link>
+                <Link className="btn btn-ghost normal-case text-xl" to='/'>Computer Parts</Link>
             </div>
             <div className="navbar-end hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
