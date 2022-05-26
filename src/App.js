@@ -18,6 +18,7 @@ import Header from './Pages/Shared/Header';
 import NotFound from './Pages/Shared/NotFound';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
+import Payment from './Pages/DashBoard/Payment';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         }>
           <Route path='myOrder' element={<MyOrder/>}/>
           <Route path='review' element={<AddReview/>}/>
+          <Route path='payment/:id' element={<Payment/>}/>
           <Route path='profile' element={<MyProfile/>}/>
           <Route path='manageOrder' element={<RequireAdmin>
             <ManageOrder/>

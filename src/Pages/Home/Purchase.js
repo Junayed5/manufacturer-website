@@ -4,6 +4,7 @@ import auth from '../../firebase.init';
 
 const Purchase = ({ product, setPurchase }) => {
 
+    const price = product.price;
     const [user] = useAuthState(auth);
     const handlePurchase = event => {
         event.preventDefault();
@@ -14,7 +15,7 @@ const Purchase = ({ product, setPurchase }) => {
         const address = event.target.address.value;
         const phone = event.target.phone.value;
 
-        const purchase = { name, email, productName, quantity: orderQuantity, address, phone };
+        const purchase = { name, email, productName, quantity: orderQuantity, address, phone,price };
         console.log(purchase);
 
         fetch('http://localhost:4000/orders', {
@@ -30,21 +31,6 @@ const Purchase = ({ product, setPurchase }) => {
                 setPurchase(null)
                 toast.success('Order Done!')
             });
-
-        // const updateQuantity = {quantity:quantity - orderQuantity}
-
-        // fetch(`http://localhost:4000/parts/${product._id}`, {
-        //     method: 'PATCH',
-        //     headers: {
-        //         'Content-type': 'application/json'
-        //     },
-        //        body:JSON.stringify()
-        // })
-        //     .then(res => res.json())
-        //     .then(data => {
-        //         console.log({ 'success': data });
-        //         setPurchase(null)
-        //     })
 
     }
 
