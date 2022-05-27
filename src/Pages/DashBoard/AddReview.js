@@ -11,7 +11,7 @@ const AddReview = () => {
 
     const onSubmit = data => {
         console.log(data);
-        fetch('http://localhost:4000/review',{
+        fetch('https://stark-basin-71367.herokuapp.com/review',{
             method:'POST',
             headers:{
                 'Content-type':'application/json'

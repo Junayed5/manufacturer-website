@@ -18,7 +18,7 @@ const Purchase = ({ product, setPurchase }) => {
         const purchase = { name, email, productName, quantity: orderQuantity, address, phone,price };
         console.log(purchase);
 
-        fetch('http://localhost:4000/orders', {
+        fetch('https://stark-basin-71367.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'

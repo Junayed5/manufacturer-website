@@ -6,7 +6,7 @@ import ProductRow from './ProductRow';
 
 const ManageProduct = () => {
 
-    const { data: allProducts, isLoading, refetch } = useQuery('products', () => fetch('http://localhost:4000/parts').then(res => res.json()));
+    const { data: allProducts, isLoading, refetch } = useQuery('products', () => fetch('https://stark-basin-71367.herokuapp.com/parts').then(res => res.json()));
 
     const [modal, setModal] = useState(null);
 

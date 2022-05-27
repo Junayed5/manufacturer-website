@@ -4,7 +4,7 @@ import AdminRow from './AdminRow';
 const MakeAdmin = () => {
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:4000/users',{
+        fetch('https://stark-basin-71367.herokuapp.com/users',{
             method:"GET",
             headers:{
                 authorization:`Bearar ${localStorage.getItem('accessToken')}`

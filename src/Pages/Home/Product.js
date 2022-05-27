@@ -9,7 +9,7 @@ const Product = () => {
     const { img, name, quantity, minOrder, price } = product;
 
     useEffect(() => {
-        fetch(`http://localhost:4000/part/${id}`)
+        fetch(`https://stark-basin-71367.herokuapp.com/part/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [id])
@@ -17,7 +17,7 @@ const Product = () => {
     return (
         <div className="card w-96 bg-base-100 shadow-xl mx-auto">
             <figure className="px-10 pt-10">
-                <img src={img} alt="Shoes" className="rounded-xl" />
+                <img src={img} alt={name} className="rounded-xl" />
             </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{name}</h2>

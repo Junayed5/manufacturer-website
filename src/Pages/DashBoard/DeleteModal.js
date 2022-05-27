@@ -4,7 +4,7 @@ import { toast } from 'react-toastify';
 const DeleteModal = ({modal,setModal,refetch}) => {
 
     const deleteProduct = (name) => {
-        fetch(`http://localhost:4000/parts/${name}`,{
+        fetch(`https://stark-basin-71367.herokuapp.com/parts/${name}`,{
             method:"DELETE",
             headers:{
                 authorization:`Bearar ${localStorage.getItem('accessToken')}`

@@ -6,7 +6,7 @@ const Part = ({ part }) => {
     return (
         <div>
             <div className="card w-96 bg-base-100 shadow-xl">
-                <figure><img src={img} alt="Shoes" /></figure>
+                <figure><img src={img} alt={name} /></figure>
                 <div className="card-body">
                     <h2 className="card-title">{name}</h2>
                     <h4 className='text-xl'><span className='font-bold'>Available Stock:</span>{quantity}</h4>

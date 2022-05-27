@@ -7,7 +7,7 @@ const AddProduct = () => {
     const onSubmit = data => {
         console.log(data);
 
-        fetch('http://localhost:4000/parts',{
+        fetch('https://stark-basin-71367.herokuapp.com/parts',{
             method:"POST",
             headers:{
                 'Content-type' : 'application/json'

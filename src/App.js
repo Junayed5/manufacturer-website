@@ -19,6 +19,7 @@ import NotFound from './Pages/Shared/NotFound';
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import Payment from './Pages/DashBoard/Payment';
+import Blog from './Pages/Blog/Blog';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/home' element={<Home/>}/>
+        <Route path='/blog' element={<Blog/>}/>
         <Route path='/part/:id' element={
           <RequireAuth>
             <Product/>

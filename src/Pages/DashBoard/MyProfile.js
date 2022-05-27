@@ -9,7 +9,7 @@ const MyProfile = () => {
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
         console.log(data);
-        fetch(`http://localhost:4000/profile/${user.email}`,{
+        fetch(`https://stark-basin-71367.herokuapp.com/profile/${user.email}`,{
             method:'PUT',
             headers: {
                 'Content-type':'application/json'
@@ -24,7 +24,7 @@ const MyProfile = () => {
 
     const [profile,setProfile] = useState({});
     useEffect( () => {
-        fetch(`http://localhost:4000/profile/${user.email}`)
+        fetch(`https://stark-basin-71367.herokuapp.com/profile/${user.email}`)
         .then(res => res.json())
         .then(data => setProfile(data))
     },[profile,user.email])

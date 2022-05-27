@@ -12,7 +12,7 @@ const CheckoutForm = ({order}) => {
     const {_id,price, name, email} = order;
 
     useEffect(() => {
-        fetch("http://localhost:4000/create-payment-intent", {
+        fetch("https://stark-basin-71367.herokuapp.com/create-payment-intent", {
           method: "POST",
           headers: { 
               "Content-Type": "application/json",
@@ -76,7 +76,7 @@ const CheckoutForm = ({order}) => {
               setCardError('')
               setTransactionId(paymentIntent.id);
               setSuccess('Your payment is successful');
-              fetch(`http://localhost:4000/order/${_id}`,{
+              fetch(`https://stark-basin-71367.herokuapp.com/order/${_id}`,{
                   method:"PATCH",
                   headers:{
                     "Content-Type": "application/json",
