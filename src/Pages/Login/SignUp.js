@@ -1,16 +1,20 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import SocialLogin from './SocialLogin';
 import { toast } from 'react-toastify';
 import UseToken from '../../hooks/UseToken';
+import Loading from '../Shared/Loading';
 
 
 const SignUp = () => {
 
     const { register, formState: { errors }, handleSubmit,reset } = useForm();
+
+    const navigate = useNavigate();
+    let errorMsg;
 
     const [
         createUserWithEmailAndPassword,
@@ -23,8 +27,16 @@ const SignUp = () => {
 
     const token = UseToken(user)
 
-    if (token) {
-        // console.log(user);
+    if (user) {
+        navigate('/')
+    }
+
+    if (error || UError) {
+        errorMsg = <p className='text-red-600'>{error.message || UError.message}</p>
+    }
+
+    if (loading || updating) {
+        return <Loading/>
     }
 
     const onSubmit = async data => {
@@ -87,6 +99,7 @@ const SignUp = () => {
                                 <Link to="/login" className="label-text-alt link link-hover">Already have an account?</Link>
                             </label>
                         </div>
+                        {errorMsg}
                         <div className="form-control mt-6">
                             <button className="btn btn-primary text-white">Sign Up</button>
                         </div>

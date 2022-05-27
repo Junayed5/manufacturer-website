@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import UseToken from '../../hooks/UseToken';
+import Loading from '../Shared/Loading';
 import SocialLogin from './SocialLogin';
 
 const Login = () => {
@@ -16,6 +17,7 @@ const Login = () => {
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    let errorMsg;
 
     const navigate = useNavigate();
     const location = useLocation();
@@ -24,6 +26,14 @@ const Login = () => {
     const token = UseToken(user);
     if (user) {
         navigate(from, { replace: true });
+    }
+
+    if (error) {
+        errorMsg = <p className='text-red-600'>{error.message}</p>
+    }
+
+    if (loading) {
+        return <Loading/>
     }
 
     const onSubmit = data => {
@@ -72,6 +82,7 @@ const Login = () => {
                                 <a href="/" className="label-text-alt link link-hover">Forgot password?</a>
                             </label>
                         </div>
+                        {errorMsg}
                         <div className="form-control mt-6">
                             <button className="btn btn-primary text-white">Login</button>
                         </div>
