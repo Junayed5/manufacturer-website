@@ -2,7 +2,6 @@
 
 This project Made by tailwind [Computer Parts](https://computer-parts-manufactu-5503f.web.app/).
 
-## Available Scripts
 
 This is so big...
 
