@@ -20,6 +20,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from 'react-toastify';
 import Payment from './Pages/DashBoard/Payment';
 import Blog from './Pages/Blog/Blog';
+import MyPortfolio from './Pages/MyPortfolio/MyPortfolio';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
         <Route path='/' element={<Home/>}/>
         <Route path='/home' element={<Home/>}/>
         <Route path='/blog' element={<Blog/>}/>
+        <Route path='/portfolio' element={<MyPortfolio/>}/>
         <Route path='/part/:id' element={
           <RequireAuth>
             <Product/>

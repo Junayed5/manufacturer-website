@@ -16,6 +16,7 @@ const Header = () => {
     const navigation = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blogs</Link></li>
+        <li><Link to='/portfolio'>My Portfolio</Link></li>
         {user && <Link className='my-auto btn btn-ghost' to='/dashboard'>Dashboard</Link>}
         {user ? <button onClick={handleSignOut} className='btn btn-ghost'>Sign out</button>:<li><Link to='/login'>Login</Link></li>}
     </>
