@@ -12,7 +12,7 @@ const CheckoutForm = ({order}) => {
     const {_id,price, name, email} = order;
 
     useEffect(() => {
-        fetch("https://stark-basin-71367.herokuapp.com/create-payment-intent", {
+        fetch("https://compter-parts-manufacturer.onrender.com/create-payment-intent", {
           method: "POST",
           headers: { 
               "Content-Type": "application/json",
@@ -76,7 +76,7 @@ const CheckoutForm = ({order}) => {
               setCardError('')
               setTransactionId(paymentIntent.id);
               setSuccess('Your payment is successful');
-              fetch(`https://stark-basin-71367.herokuapp.com/order/${_id}`,{
+              fetch(`https://compter-parts-manufacturer.onrender.com/order/${_id}`,{
                   method:"PATCH",
                   headers:{
                     "Content-Type": "application/json",

@@ -5,14 +5,14 @@ const Reviews = () => {
     const [reviews, setReviews] = useState([]);
 
     useEffect(() => {
-        fetch('https://stark-basin-71367.herokuapp.com/review')
+        fetch('https://compter-parts-manufacturer.onrender.com/review')
             .then(res => res.json())
             .then(data => setReviews(data))
     }, [])
     return (
         <div className='my-14'>
             <h1 className='text-3xl font-bold text-secondary text-center'>Reviews</h1><hr className='w-32 h-1 mx-auto'/>
-            <div className='grid sm:grid-cols-1 lg:grid-cols-3'>
+            <div className='grid sm:grid-cols-1 lg:grid-cols-4'>
                 {reviews.map(review => <Review
                     key={review._id}
                     review={review}

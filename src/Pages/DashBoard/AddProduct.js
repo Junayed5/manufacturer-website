@@ -7,7 +7,7 @@ const AddProduct = () => {
     const onSubmit = data => {
         console.log(data);
 
-        fetch('https://stark-basin-71367.herokuapp.com/parts',{
+        fetch('https://compter-parts-manufacturer.onrender.com/parts',{
             method:"POST",
             headers:{
                 'Content-type' : 'application/json'

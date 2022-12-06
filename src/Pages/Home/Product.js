@@ -9,7 +9,7 @@ const Product = () => {
     const { img, name, quantity, minOrder, price } = product;
 
     useEffect(() => {
-        fetch(`https://stark-basin-71367.herokuapp.com/part/${id}`)
+        fetch(`https://compter-parts-manufacturer.onrender.com/part/${id}`)
             .then(res => res.json())
             .then(data => setProduct(data))
     }, [id])

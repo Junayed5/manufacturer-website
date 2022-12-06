@@ -18,7 +18,7 @@ const Purchase = ({ product, setPurchase }) => {
         const purchase = { name, email, productName, quantity: orderQuantity, address, phone,price };
         console.log(purchase);
 
-        fetch('https://stark-basin-71367.herokuapp.com/orders', {
+        fetch('https://compter-parts-manufacturer.onrender.com/orders', {
             method: 'POST',
             headers: {
                 'Content-type': 'application/json'

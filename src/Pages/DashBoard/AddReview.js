@@ -11,7 +11,7 @@ const AddReview = () => {
 
     const onSubmit = data => {
         console.log(data);
-        fetch('https://stark-basin-71367.herokuapp.com/review',{
+        fetch('https://compter-parts-manufacturer.onrender.com/review',{
             method:'POST',
             headers:{
                 'Content-type':'application/json'

@@ -8,7 +8,7 @@ const MyOrder = () => {
     const [orders, setOrders] = useState([]);
     const [user] = useAuthState(auth)
     useEffect(() => {
-        fetch(`https://stark-basin-71367.herokuapp.com/orders?email=${user.email}`,{
+        fetch(`https://compter-parts-manufacturer.onrender.com/orders?email=${user.email}`,{
             method:"GET",
             headers:{
                 authorization:`Bearar ${localStorage.getItem('accessToken')}`

@@ -9,7 +9,7 @@ import CheckoutForm from './CheckoutForm';
 const stripePromise = loadStripe('pk_test_51L1CEICVUvLchhzLCFUx2zvPbWZ5hg0SpirWCxHXWBn90so0r6z1IeJnte7OLc8Awc35MEiooeJPhP994Bo93lUL00ZYJecKzf');
 const Payment = () => {
     const { id } = useParams();
-    const {data: order, isLoading} = useQuery('order', () => fetch(`https://stark-basin-71367.herokuapp.com/order/${id}`,{
+    const {data: order, isLoading} = useQuery('order', () => fetch(`https://compter-parts-manufacturer.onrender.com/order/${id}`,{
         method:"GET",
         headers:{
             authorization:`Bearar ${localStorage.getItem('accessToken')}`
